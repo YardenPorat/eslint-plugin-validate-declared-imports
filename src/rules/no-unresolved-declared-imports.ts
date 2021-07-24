@@ -1,32 +1,63 @@
-import path from 'path';
+import { resolve, dirname } from 'path';
 import fs from 'fs';
 import { ruleCreator } from '../utils';
 
+const ruleName = 'no-unresolved-declared-imports';
+
+type IOptions = {
+    fileExtensions: string[];
+};
+
+const existingFiles: Set<string> = new Set();
+
 export const noUnresolvedDeclaredImports = {
-    'no-unresolved-declared-imports': ruleCreator({
-        name: 'no-unresolved-declared-imports',
+    [ruleName]: ruleCreator({
+        name: ruleName,
         defaultOptions: [],
         meta: {
             docs: { category: 'Best Practices', description: '', recommended: 'error' },
             type: 'problem',
             messages: {
-                'no-unresolved-declared-imports': `The following filePath does not exist: {{filePath}}`,
+                [ruleName]: `The following filePath does not exist: {{filePath}}`,
             },
-            schema: {},
+            schema: [
+                //TODO make required
+                {
+                    type: 'object',
+                    properties: {
+                        fileExtensions: {
+                            type: 'array',
+                            uniqueItems: true,
+                            items: {
+                                type: 'string',
+                            },
+                        },
+                    },
+                },
+            ],
         },
         create(context) {
             const nodeFileName = context.getFilename();
+            const { fileExtensions } = context.options[0] as IOptions;
+            if (!fileExtensions.length) {
+                throw new Error('Must receive file extension(s) as a rule option');
+            }
 
             return {
                 ImportDeclaration(node) {
                     const { value: imported } = node.source;
                     if (node.importKind === 'value' && typeof imported === 'string') {
-                        if (imported.endsWith('.st.css')) {
-                            const filePath = path.resolve(nodeFileName, imported);
-                            if (!fs.existsSync(filePath)) {
+                        if (fileExtensions.some((el) => imported.endsWith(el))) {
+                            const filePath = resolve(dirname(nodeFileName), imported);
+                            const exist = existingFiles.has(filePath)
+                                ? true
+                                : fs.existsSync(filePath)
+                                ? (existingFiles.add(filePath), true)
+                                : false;
+                            if (!exist) {
                                 context.report({
                                     node,
-                                    messageId: 'no-unresolved-declared-imports',
+                                    messageId: ruleName,
                                     data: {
                                         filePath,
                                     },
