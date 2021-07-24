@@ -15,7 +15,10 @@ const validImport = resolve(__dirname, '../fixtures/style.st.css');
 const invalidImport = resolve(__dirname, '../fixtures/abc.st.css');
 
 ruleTester.run('no-unresolved-declared-imports', noUnresolvedDeclaredImports['no-unresolved-declared-imports'], {
-    valid: [{ code: `import { style, classes } from '${validImport}';`, options }],
+    valid: [
+        { code: `import { style, classes } from '${validImport}';`, options },
+        { code: `import { style, classes } from './test/fixtures/style.st.css';`, options },
+    ],
     invalid: [
         {
             code: `import { style, classes } from '${invalidImport}';`,

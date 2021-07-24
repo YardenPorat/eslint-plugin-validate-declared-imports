@@ -50,8 +50,10 @@ export const noUnresolvedDeclaredImports = {
                         if (fileExtensions.some((el) => imported.endsWith(el))) {
                             if (imported[0] === '@') {
                                 try {
-                                    const filePath = require.resolve(imported, { paths: [nodeFileName] });
-                                    doesPathExist(filePath);
+                                    if (!existingFiles.has(imported)) {
+                                        require.resolve(imported, { paths: [nodeFileName] });
+                                        existingFiles.add(imported);
+                                    }
                                 } catch (err) {
                                     context.report({
                                         node,

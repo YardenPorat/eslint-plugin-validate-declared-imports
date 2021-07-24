@@ -23,7 +23,7 @@
     "typecheck": "tsc --noEmit",
     "pretest": "npm run typecheck && npm run lint",
     "lint": "eslint . -f codeframe",
-    "test": "mocha ./tests/**/*.ts"
+    "test": "mocha ./test/**/*.ts"
   },
   "dependencies": {
     "requireindex": "~1.1.0"
