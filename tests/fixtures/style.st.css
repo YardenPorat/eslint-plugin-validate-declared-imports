@@ -1,0 +1,47 @@
+.root {
+}
+
+.content {
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+  overflow: auto;
+}
+
+.searchInputContainer {
+  flex: 0 0 38px;
+  padding: 0 10px;
+}
+
+.searchInput {
+  margin-top: 2px;
+}
+
+.leftPanel {
+  flex-basis: 200px;
+  flex-shrink: 0;
+  height: 100%;
+}
+
+.leftPanelListTitle {
+  padding: 12px;
+  padding-top: 6px;
+}
+
+.htmlElementsCategories {
+  border-bottom: 1px solid;
+}
+
+.componentsCategories {
+  margin-top: 12px;
+}
+
+.htmlElementsList {
+}
+
+.allSearchResultsButton {
+}
+
+.searchResults {
+  height: 100%;
+}

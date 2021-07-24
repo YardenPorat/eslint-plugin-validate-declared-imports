@@ -1,0 +1,41 @@
+{
+  "name": "eslint-plugin-validate-declared-imports",
+  "version": "0.0.0",
+  "description": "Validates globally declared typings",
+  "keywords": [
+    "eslint",
+    "eslintplugin",
+    "eslint-plugin"
+  ],
+  "author": "Yarden Porat",
+  "main": "lib/index.js",
+  "scripts": {
+    "clean": "rimraf lib dist",
+    "build": "npm run build:ts",
+    "prebuild": "npm run clean",
+    "build:ts": "tsc -p tsconfig.build.json",
+    "typecheck": "tsc --noEmit",
+    "pretest": "npm run typecheck && npm run lint",
+    "lint": "eslint . -f codeframe",
+    "test": "mocha ./tests/**/*.ts"
+  },
+  "dependencies": {
+    "requireindex": "~1.1.0"
+  },
+  "devDependencies": {
+    "@ts-tools/node": "^3.0.1",
+    "@types/mocha": "^9.0.0",
+    "@types/node": "^16.4.1",
+    "@typescript-eslint/eslint-plugin": "^4.28.4",
+    "@typescript-eslint/experimental-utils": "^4.28.4",
+    "@typescript-eslint/parser": "^4.28.4",
+    "eslint": "^7.1.0",
+    "eslint-config-prettier": "^8.3.0",
+    "mocha": "^7.2.0",
+    "rimraf": "^3.0.2"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "license": "ISC"
+}
