@@ -1,5 +1,5 @@
 # eslint-plugin-validate-declared-imports
-Validates globally declared typings
+Validates imports of typescripts globally declared modules 
 
 ## When to use
 When you declare modules with typescript, filepaths are not validated to be correct.
