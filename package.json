@@ -25,9 +25,7 @@
     "lint": "eslint . -f codeframe",
     "test": "mocha ./test/**/*.ts"
   },
-  "dependencies": {
-    "requireindex": "~1.1.0"
-  },
+  "dependencies": {},
   "devDependencies": {
     "@ts-tools/node": "^3.0.1",
     "@types/mocha": "^9.0.0",
