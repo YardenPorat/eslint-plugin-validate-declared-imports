@@ -2,12 +2,6 @@
   "name": "eslint-plugin-validate-declared-imports",
   "version": "1.0.2",
   "description": "ESLint plugin that validates globally declared typings imports",
-  "keywords": [
-    "eslint",
-    "eslintplugin",
-    "eslint-plugin",
-    "eslint-validate-declared-types"
-  ],
   "homepage": "https://github.com/yardenporat/eslint-plugin-validate-declared-imports",
   "bugs": {
     "url": "https://github.com/yardenporat/eslint-plugin-validate-declared-imports/issues",
@@ -46,5 +40,15 @@
     "type": "git",
     "url": "https://github.com/yardenporat/eslint-plugin-validate-declared-imports"
   },
+  "keywords": [
+    "eslint",
+    "eslintplugin",
+    "eslint-plugin",
+    "eslint-validate-declared-types",
+    "eslint-validate-declared-modules",
+    "eslint-validate-declared-imports-path",
+    "eslint-validate-imports",
+    "eslint-validate-file-imports"
+  ],
   "private": false
 }
