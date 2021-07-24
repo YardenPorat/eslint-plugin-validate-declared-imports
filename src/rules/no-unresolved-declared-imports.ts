@@ -1,5 +1,5 @@
-import { resolve, dirname } from 'path';
 import fs from 'fs';
+import { resolve, dirname } from 'path';
 import { ruleCreator } from '../utils';
 
 const ruleName = 'no-unresolved-declared-imports';
@@ -48,20 +48,30 @@ export const noUnresolvedDeclaredImports = {
                     const { value: imported } = node.source;
                     if (node.importKind === 'value' && typeof imported === 'string') {
                         if (fileExtensions.some((el) => imported.endsWith(el))) {
-                            const filePath = resolve(dirname(nodeFileName), imported);
-                            const exist = existingFiles.has(filePath)
-                                ? true
-                                : fs.existsSync(filePath)
-                                ? (existingFiles.add(filePath), true)
-                                : false;
-                            if (!exist) {
-                                context.report({
-                                    node,
-                                    messageId: ruleName,
-                                    data: {
-                                        filePath,
-                                    },
-                                });
+                            if (imported[0] === '@') {
+                                try {
+                                    const filePath = require.resolve(imported, { paths: [nodeFileName] });
+                                    doesPathExist(filePath);
+                                } catch (err) {
+                                    context.report({
+                                        node,
+                                        messageId: ruleName,
+                                        data: {
+                                            filePath: imported,
+                                        },
+                                    });
+                                }
+                            } else {
+                                const filePath = resolve(dirname(nodeFileName), imported);
+                                if (!doesPathExist(filePath)) {
+                                    context.report({
+                                        node,
+                                        messageId: ruleName,
+                                        data: {
+                                            filePath,
+                                        },
+                                    });
+                                }
                             }
                         }
                     }
@@ -71,6 +81,6 @@ export const noUnresolvedDeclaredImports = {
     }),
 };
 
-export function isRelativeRequest(request: string) {
-    return request.startsWith('./') || request.startsWith('../') || request === '.' || request === '..';
+function doesPathExist(filePath: string) {
+    return existingFiles.has(filePath) ? true : fs.existsSync(filePath) ? (existingFiles.add(filePath), true) : false;
 }
