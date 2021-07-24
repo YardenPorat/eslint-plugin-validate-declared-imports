@@ -1,4 +1,6 @@
 # eslint-plugin-validate-declared-imports
+[![test](https://github.com/yardenporat/eslint-plugin-validate-declared-imports/actions/workflows/test.yml/badge.svg)](https://github.com/yardenporat/eslint-plugin-validate-declared-imports/actions/workflows/test.yml)
+
 Validates imports of typescripts globally declared modules 
 
 ## When to use
