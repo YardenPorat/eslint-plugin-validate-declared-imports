@@ -2,7 +2,41 @@
 Validates globally declared typings
 
 ## When to use
-Add `validate-
+When you declare modules with typescript, filepaths are not validated to be correct.
+
+Example:
+```ts
+declare module '*.module.css' {
+  const classes: { [key: string]: string };
+  export default classes;
+}
+
+declare module '*.module.scss' {
+  const classes: { [key: string]: string };
+  export default classes;
+}
+
+declare module '*.module.sass' {
+  const classes: { [key: string]: string };
+  export default classes;
+}
+
+declare module '*.module.less' {
+  const classes: { [key: string]: string };
+  export default classes;
+}
+
+declare module '*.module.styl' {
+  const classes: { [key: string]: string };
+  export default classes;
+}
+```
+
+This will not throw an error, even though path is incorrect:
+```ts
+import styles from 'asdasdasdasdasd.module.css';
+```
+
 ## Installation
 
 You'll first need to install [ESLint](http://eslint.org):
@@ -34,7 +68,16 @@ Then configure the rules you want to use under the rules section.
 ```json
 {
     "rules": {
-        "validate-declared-imports/no-unresolved-declared-imports": ["error", { "fileExtensions": [".jpg"] }]
+        "validate-declared-imports/no-unresolved-declared-imports": 
+            ["error", { 
+                "fileExtensions": [
+                    ".jpg",
+                    ".module.css",
+                    ".module.css",
+                    ".module.scss",
+                    ".module.sass",
+                    ".module.less",
+                    ".module.styl"] }]
         
     }
 }
