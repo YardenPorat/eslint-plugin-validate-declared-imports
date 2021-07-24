@@ -1,13 +1,19 @@
 {
   "name": "eslint-plugin-validate-declared-imports",
-  "version": "0.0.0",
-  "description": "Validates globally declared typings",
+  "version": "1.0.0",
+  "description": "ESLint plugin that validates globally declared typings imports",
   "keywords": [
     "eslint",
     "eslintplugin",
-    "eslint-plugin"
+    "eslint-plugin",
+    "eslint-validate-declared-types"
   ],
-  "author": "Yarden Porat",
+  "homepage": "https://github.com/yardenporat/eslint-plugin-validate-declared-imports",
+  "bugs": {
+    "url": "https://github.com/yardenporat/eslint-plugin-validate-declared-imports/issues",
+    "email": "yardenporat@gmail.com"
+  },
+  "author": "Yarden Porat <yardenporat@gmail.com> (https://github.com/yardenporat)",
   "main": "lib/index.js",
   "scripts": {
     "clean": "rimraf lib dist",
@@ -37,5 +43,10 @@
   "engines": {
     "node": ">=0.10.0"
   },
-  "license": "ISC"
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yardenporat/eslint-plugin-validate-declared-imports"
+  },
+  "private": false
 }
