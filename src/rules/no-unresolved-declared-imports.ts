@@ -1,6 +1,6 @@
 import fs from 'fs';
 import { resolve, dirname } from 'path';
-import { ruleCreator } from '../utils';
+import { isPackageRequest, ruleCreator } from '../utils';
 
 const ruleName = 'no-unresolved-declared-imports';
 
@@ -45,26 +45,26 @@ export const noUnresolvedDeclaredImports = {
 
             return {
                 ImportDeclaration(node) {
-                    const { value: imported } = node.source;
-                    if (node.importKind === 'value' && typeof imported === 'string') {
-                        if (fileExtensions.some((el) => imported.endsWith(el))) {
-                            if (imported[0] === '@') {
+                    const { value: importRequest } = node.source;
+                    if (node.importKind === 'value' && typeof importRequest === 'string') {
+                        if (fileExtensions.some((el) => importRequest.endsWith(el))) {
+                            if (isPackageRequest(importRequest)) {
                                 try {
-                                    if (!existingFiles.has(imported)) {
-                                        require.resolve(imported, { paths: [nodeFileName] });
-                                        existingFiles.add(imported);
+                                    if (!existingFiles.has(importRequest)) {
+                                        require.resolve(importRequest, { paths: [nodeFileName] });
+                                        existingFiles.add(importRequest);
                                     }
                                 } catch (err) {
                                     context.report({
                                         node,
                                         messageId: ruleName,
                                         data: {
-                                            filePath: imported,
+                                            filePath: importRequest,
                                         },
                                     });
                                 }
                             } else {
-                                const filePath = resolve(dirname(nodeFileName), imported);
+                                const filePath = resolve(dirname(nodeFileName), importRequest);
                                 if (!doesPathExist(filePath)) {
                                     context.report({
                                         node,

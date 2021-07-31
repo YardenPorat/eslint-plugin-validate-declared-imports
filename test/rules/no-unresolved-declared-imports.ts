@@ -1,7 +1,7 @@
+import fs from '@file-services/node';
 import { resolve } from 'path';
 import { TSESLint } from '@typescript-eslint/experimental-utils';
 import { noUnresolvedDeclaredImports } from '../../src/rules/no-unresolved-declared-imports';
-import fs from '@file-services/node';
 
 const ruleTester = new TSESLint.RuleTester({
     parser: resolve('./node_modules/@typescript-eslint/parser'),
@@ -11,25 +11,26 @@ const ruleTester = new TSESLint.RuleTester({
     },
 });
 
+const TESTING_PACKAGE = 'test-cases';
 const options = [{ fileExtensions: ['.st.css', '.png'] }];
 const fixturesPath = resolve(__dirname, '../fixtures');
-fs.copyDirectorySync(fixturesPath, resolve(__dirname, '../../node_modules/@test-cases'));
+fs.copyDirectorySync(fixturesPath, resolve(__dirname, `../../node_modules/${TESTING_PACKAGE}`));
 
 const invalidCases = {
     absoluteStCss: resolve(fixturesPath, 'abc.st.css'),
     relativeStCss: './test/fixtures/abc.st.css',
-    packageStCss: '@test-cases/abc.st.css',
+    packageStCss: `${TESTING_PACKAGE}/abc.st.css`,
     relativePng: './test/fixtures/abc.png',
-    packagePng: '@test-cases/abc.png',
+    packagePng: `${TESTING_PACKAGE}/abc.png`,
 };
 
 ruleTester.run('no-unresolved-declared-imports', noUnresolvedDeclaredImports['no-unresolved-declared-imports'], {
     valid: [
         { code: `import { style, classes } from '${resolve(fixturesPath, 'style.st.css')}';`, options },
         { code: `import { style, classes } from './test/fixtures/style.st.css';`, options },
-        { code: `import { style, classes } from '@test-cases/style.st.css';`, options },
+        { code: `import { style, classes } from '${TESTING_PACKAGE}/style.st.css';`, options },
         { code: `import Img from '${resolve(fixturesPath, 'star.png')}';`, options },
-        { code: `import Img from '@test-cases/star.png';`, options },
+        { code: `import Img from '${TESTING_PACKAGE}/star.png';`, options },
     ],
     invalid: [
         {
