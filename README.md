@@ -77,13 +77,16 @@ Then configure the rules you want to use under the rules section.
         "validate-declared-imports/no-unresolved-declared-imports": 
             ["error", { 
                 "fileExtensions": [
-                    ".jpg",
-                    ".module.css",
-                    ".module.css",
-                    ".module.scss",
-                    ".module.sass",
-                    ".module.less",
-                    ".module.styl"] }]
+                    // Asset files: png, jpeg, svg...
+                    ".jpg", 
+                    // Style files
+                    ".module.css",  // CSS Modules
+                    ".module.scss", // SCSS Modules
+                    ".module.less", // Less Modules
+                    ".st.css" // Stylable files
+                    ] 
+                  }
+            ]
         
     }
 }
