@@ -44,12 +44,15 @@ import styles from 'asdasdasdasdasd.module.css';
 
 You'll first need to install [ESLint](http://eslint.org):
 ```
-$ npm i eslint --save-dev
+npm i eslint --save-dev
 ```
 Next, install `eslint-plugin-validate-declared-imports`:
-
 ```
-$ npm install eslint-plugin-validate-declared-imports --save-dev
+npm install eslint-plugin-validate-declared-imports --save-dev
+```
+or with yarn:
+```
+yarn add -D eslint-plugin-validate-declared-imports
 ```
 
 
