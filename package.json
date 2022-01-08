@@ -19,6 +19,9 @@
     "lint": "eslint . -f codeframe",
     "test": "mocha ./test/**/*.ts"
   },
+  "peerDependencies": {
+    "eslint": "*"
+  },
   "devDependencies": {
     "@file-services/node": "^5.4.0",
     "@ts-tools/node": "^3.0.1",
