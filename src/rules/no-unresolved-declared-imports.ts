@@ -1,6 +1,6 @@
 import fs from 'fs';
 import { resolve, dirname } from 'path';
-import { isPackageRequest, ruleCreator } from '../utils';
+import { generatePathsList, isPackageRequest, isTsPathsResolution, ruleCreator } from '../utils';
 
 const ruleName = 'no-unresolved-declared-imports';
 
@@ -43,11 +43,19 @@ export const noUnresolvedDeclaredImports = {
                 throw new Error('Must receive file extension(s) as a rule option');
             }
 
+            generatePathsList();
+
             return {
                 ImportDeclaration(node) {
                     const { value: importRequest } = node.source;
                     if (node.importKind === 'value' && typeof importRequest === 'string') {
                         if (fileExtensions.some((el) => importRequest.endsWith(el))) {
+                            /**
+                             * tsconfig.compilerOptions.paths support
+                             */
+                            if (isTsPathsResolution(importRequest)) {
+                                return true;
+                            }
                             if (isPackageRequest(importRequest)) {
                                 try {
                                     if (!existingFiles.has(importRequest)) {

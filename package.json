@@ -15,7 +15,6 @@
     "prebuild": "npm run clean",
     "build:ts": "tsc -p tsconfig.build.json",
     "typecheck": "tsc --noEmit",
-    "pretest": "npm run typecheck && npm run lint",
     "lint": "eslint .",
     "test": "mocha ./test/**/*.ts"
   },

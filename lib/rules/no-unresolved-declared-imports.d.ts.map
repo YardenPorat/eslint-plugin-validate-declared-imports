@@ -1,1 +1,1 @@
-{"version":3,"file":"no-unresolved-declared-imports.d.ts","sourceRoot":"","sources":["../../src/rules/no-unresolved-declared-imports.ts"],"names":[],"mappings":"AAYA,eAAO,MAAM,2BAA2B;;CAuEvC,CAAC"}
+{"version":3,"file":"no-unresolved-declared-imports.d.ts","sourceRoot":"","sources":["../../src/rules/no-unresolved-declared-imports.ts"],"names":[],"mappings":"AAYA,eAAO,MAAM,2BAA2B;;CA+EvC,CAAC"}
