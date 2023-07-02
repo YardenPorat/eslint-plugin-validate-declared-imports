@@ -54,7 +54,7 @@ export const noUnresolvedDeclaredImports = {
                              * tsconfig.compilerOptions.paths support
                              */
                             if (isTsPathsResolution(importRequest)) {
-                                return true;
+                                return;
                             }
                             if (isPackageRequest(importRequest)) {
                                 try {
