@@ -16,6 +16,7 @@
     "build:ts": "tsc -p tsconfig.build.json",
     "typecheck": "tsc --noEmit",
     "lint": "eslint .",
+    "pretest": "npm run typecheck && npm run lint",
     "test": "mocha ./test/**/*.ts"
   },
   "peerDependencies": {
