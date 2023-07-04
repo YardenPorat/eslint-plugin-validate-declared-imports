@@ -22,6 +22,7 @@ const invalidCases = {
     packageStCss: `${TESTING_PACKAGE}/abc.st.css`,
     relativePng: './test/fixtures/abc.png',
     packagePng: `${TESTING_PACKAGE}/abc.png`,
+    tsPathsPng: '@test/fixtures/abc.png',
 };
 
 ruleTester.run('no-unresolved-declared-imports', noUnresolvedDeclaredImports['no-unresolved-declared-imports'], {
@@ -90,6 +91,18 @@ ruleTester.run('no-unresolved-declared-imports', noUnresolvedDeclaredImports['no
                     messageId: 'no-unresolved-declared-imports',
                     data: {
                         filePath: invalidCases.packagePng,
+                    },
+                },
+            ],
+        },
+        {
+            code: `import Img from '${invalidCases.tsPathsPng}';`,
+            options,
+            errors: [
+                {
+                    messageId: 'no-unresolved-declared-imports',
+                    data: {
+                        filePath: invalidCases.tsPathsPng,
                     },
                 },
             ],
