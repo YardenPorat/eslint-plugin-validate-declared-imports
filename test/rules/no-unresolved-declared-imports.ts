@@ -31,6 +31,7 @@ ruleTester.run('no-unresolved-declared-imports', noUnresolvedDeclaredImports['no
         { code: `import { style, classes } from '${TESTING_PACKAGE}/style.st.css';`, options },
         { code: `import Img from '${resolve(fixturesPath, 'star.png')}';`, options },
         { code: `import Img from '${TESTING_PACKAGE}/star.png';`, options },
+        { code: `import Img from '@test/fixtures/star.png';`, options },
     ],
     invalid: [
         {
