@@ -45,7 +45,7 @@ export function generatePathsList() {
                 return;
             }
 
-            const keyWithoutAsterix = key.slice(0, -1);
+            const keyWithoutAsterisk = key.slice(0, -1);
             let newValue = filterWithoutWildcardPaths(val);
 
             if (baseUrl) {
@@ -53,13 +53,13 @@ export function generatePathsList() {
             }
 
             // pushes a tuple to be used when iterating off imports
-            pathsToMatch.push([keyWithoutAsterix, newValue]);
+            pathsToMatch.push([keyWithoutAsterisk, newValue]);
         });
     }
 }
 
 /**
- * @description validates if the tspaths resolution is valid
+ * @description validates if the ts paths resolution is valid
  */
 export function isTsPathsResolution(request: string) {
     let isValid = false;
