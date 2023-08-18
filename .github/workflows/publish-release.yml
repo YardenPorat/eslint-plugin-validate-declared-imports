@@ -1,0 +1,20 @@
+name: Tag and create GitHub release
+on:
+  push:
+
+jobs:
+  publish:
+    name: Publish release
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: phish108/autotag-action@v1.1.55
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Publish release
+        uses: ghalactic/github-release-from-tag@v4
