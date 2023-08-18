@@ -3,8 +3,9 @@ import { resolve } from 'path';
 import { TSESLint } from '@typescript-eslint/experimental-utils';
 import { noUnresolvedDeclaredImports } from '../../src/rules/no-unresolved-declared-imports';
 
+const parserPath = require.resolve('@typescript-eslint/parser');
 const ruleTester = new TSESLint.RuleTester({
-    parser: resolve('./node_modules/@typescript-eslint/parser'),
+    parser: parserPath,
     parserOptions: {
         ecmaVersion: 2018,
         sourceType: 'module',
