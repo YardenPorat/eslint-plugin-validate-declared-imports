@@ -28,7 +28,7 @@
   "devDependencies": {
     "@file-services/node": "^9.4.1",
     "@ts-tools/node": "^6.1.0",
-    "@types/mocha": "^10.0.1",
+    "@types/mocha": "^10.0.10",
     "@types/node": "^20.5.0",
     "@typescript-eslint/eslint-plugin": "^6.4.0",
     "@typescript-eslint/parser": "^6.4.0",
