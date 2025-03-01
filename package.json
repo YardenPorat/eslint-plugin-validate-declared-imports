@@ -41,6 +41,9 @@
   "engines": {
     "node": ">=0.10.0"
   },
+  "volta": {
+    "node": "20.16.0"
+  },
   "license": "MIT",
   "repository": {
     "type": "git",
