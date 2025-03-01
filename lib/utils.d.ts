@@ -1,8 +1,8 @@
-import { ESLintUtils } from '@typescript-eslint/experimental-utils';
-export declare function ruleCreator(...args: Parameters<ReturnType<typeof ESLintUtils.RuleCreator>>): import("@typescript-eslint/utils/dist/ts-eslint/Rule").RuleModule<string, readonly unknown[], import("@typescript-eslint/utils/dist/ts-eslint/Rule").RuleListener>;
+import { ESLintUtils } from '@typescript-eslint/utils';
+export declare function ruleCreator(...args: Parameters<ReturnType<typeof ESLintUtils.RuleCreator>>): ESLintUtils.RuleModule<string, readonly unknown[], unknown, ESLintUtils.RuleListener>;
 export declare function generatePathsList(): void;
 /**
- * @description validates if the tspaths resolution is valid
+ * @description validates if the ts paths resolution is valid
  */
 export declare function isTsPathsResolution(request: string): boolean;
 /**
