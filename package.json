@@ -34,8 +34,8 @@
     "@typescript-eslint/parser": "^8.25.0",
     "eslint": "^8.57.0",
     "eslint-config-prettier": "^9.0.0",
-    "mocha": "^10.2.0",
-    "rimraf": "^5.0.1",
+    "mocha": "^11.1.0",
+    "rimraf": "^6.0.1",
     "typescript": "~5.1.6"
   },
   "engines": {
