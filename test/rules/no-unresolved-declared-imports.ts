@@ -1,6 +1,6 @@
 import fs from '@file-services/node';
 import { resolve } from 'path';
-import { TSESLint } from '@typescript-eslint/experimental-utils';
+import { TSESLint } from '@typescript-eslint/utils';
 import { noUnresolvedDeclaredImports } from '../../src/rules/no-unresolved-declared-imports';
 
 const parserPath = require.resolve('@typescript-eslint/parser');

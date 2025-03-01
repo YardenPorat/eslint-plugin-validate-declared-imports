@@ -1,5 +1,5 @@
 import path from 'path';
-import { ESLintUtils } from '@typescript-eslint/experimental-utils';
+import { ESLintUtils } from '@typescript-eslint/utils';
 import { existsSync } from 'fs';
 import ts from 'typescript';
 

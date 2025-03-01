@@ -15,7 +15,7 @@ export const noUnresolvedDeclaredImports = {
         name: ruleName,
         defaultOptions: [],
         meta: {
-            docs: { description: '', recommended: 'error' },
+            docs: { description: '' },
             type: 'problem',
             messages: {
                 [ruleName]: `The following filePath does not exist: {{filePath}}`,
