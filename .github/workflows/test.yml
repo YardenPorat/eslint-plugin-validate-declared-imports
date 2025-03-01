@@ -12,6 +12,6 @@ jobs:
         with:
           node-version: 16
           registry-url: 'https://registry.npmjs.org/'
-          cache: npm
+          cache: pnpm
       - run: npm install
       - run: npm run test
