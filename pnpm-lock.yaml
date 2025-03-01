@@ -1,8 +1,8 @@
 lockfileVersion: 5.4
 
 specifiers:
-  '@file-services/node': ^8.1.2
-  '@ts-tools/node': ^5.0.1
+  '@file-services/node': ^9.4.1
+  '@ts-tools/node': ^6.1.0
   '@types/mocha': ^10.0.1
   '@types/node': ^20.5.0
   '@typescript-eslint/eslint-plugin': ^6.4.0
@@ -18,8 +18,8 @@ dependencies:
   '@typescript-eslint/experimental-utils': 5.62.0_cfup2jodhmurb5mm6vjw5usxmi
 
 devDependencies:
-  '@file-services/node': 8.3.3
-  '@ts-tools/node': 5.0.2_typescript@5.1.6
+  '@file-services/node': 9.4.1
+  '@ts-tools/node': 6.1.0_typescript@5.1.6
   '@types/mocha': 10.0.10
   '@types/node': 20.17.22
   '@typescript-eslint/eslint-plugin': 6.21.0_szwtqzob6cioqrhjhfujayc2ny
@@ -65,22 +65,22 @@ packages:
     resolution: {integrity: sha512-d9zaMRSTIKDLhctzH12MtXvJKSSUhaHcjV+2Z+GK+EEY7XKpP5yR4x+N3TAcHTcu963nIr+TMcCb4DBCYX1z6Q==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
 
-  /@file-services/node/8.3.3:
-    resolution: {integrity: sha512-gZH5C4QRs4DurIxu/xa44zfqELHYtxjyQAx9NwDD7eNjst1jVbSOKtWD6beDXw88OI/6KzpxnbOnhwksQphJ6g==}
+  /@file-services/node/9.4.1:
+    resolution: {integrity: sha512-cuCtBnRkNUizbvlzFN/08tHdDrABK2wIlAWTOakyRUPbu5c1GVEIwZCcXxmWxa4EsxwbO1c0q3SusLIeltm89g==}
     engines: {node: '>=14'}
     dependencies:
-      '@file-services/types': 8.3.3
-      '@file-services/utils': 8.3.3
+      '@file-services/types': 9.4.1
+      '@file-services/utils': 9.4.1
     dev: true
 
-  /@file-services/types/8.3.3:
-    resolution: {integrity: sha512-b6IM6MNZ6HKm5GicSKI61Rj1UZy87UtBCUvBiqT+w16biEYxeV7fBCj6gCeu8fWdPdfXgUK2QFKAB0RST+D4GQ==}
+  /@file-services/types/9.4.1:
+    resolution: {integrity: sha512-poik5y4EU73vkSjNR86bG5yrPtMyN7CJXYS5TzoeBRbhA6Z3+7+JHBOsdDGDg4wSAi48YFdGXHjFxASI7olDDg==}
     dev: true
 
-  /@file-services/utils/8.3.3:
-    resolution: {integrity: sha512-mCVe/x8cqvMxR/JE1SdPxxcReXvinYhrGgS3Ub33pHKmYMvRLPqt7tmxJV6zV8hjptx/CuxG6+yh9iSQo5sRvA==}
+  /@file-services/utils/9.4.1:
+    resolution: {integrity: sha512-JcbtIIECJPsjhTul09Pfe58nP9i3V7UrLPJO7Bgd4jYFgYrnd4piFf5BC8K8rP0FEOS/jDcVNSxYprYLEVu/ig==}
     dependencies:
-      '@file-services/types': 8.3.3
+      '@file-services/types': 9.4.1
     dev: true
 
   /@humanwhocodes/config-array/0.13.0:
@@ -139,20 +139,20 @@ packages:
     dev: true
     optional: true
 
-  /@ts-tools/node/5.0.2_typescript@5.1.6:
-    resolution: {integrity: sha512-sYRQr7H9kwJDdHs+llp6csi3CgiBJSJrffRuPdsfL0fUD9hZWQWFn6tOyS6a5W6X/WwuLf1/t4nZDsxEik7UMA==}
-    engines: {node: '>=16'}
+  /@ts-tools/node/6.1.0_typescript@5.1.6:
+    resolution: {integrity: sha512-A5jLF7d04IwMPHXY8j7lBUGu0dX5FApfJgrb+vbLZ3Q0S+1cVmYvEYywPPi2Nmkf7o/ROS/Y+LIBwrenmVKsmA==}
+    engines: {node: '>=20'}
     peerDependencies:
       typescript: '>=2.8.0'
     dependencies:
-      '@ts-tools/transpile': 5.0.2_typescript@5.1.6
+      '@ts-tools/transpile': 6.1.0_typescript@5.1.6
       source-map-support: 0.5.21
       typescript: 5.1.6
     dev: true
 
-  /@ts-tools/transpile/5.0.2_typescript@5.1.6:
-    resolution: {integrity: sha512-Uc05dB9324pTud/PeGZU2rs8o0/qMGC6PegWhwRoNAysdJe+x0da2Iot/AmcJq5SP8xTRhfhcjhaqzu6LETyPw==}
-    engines: {node: '>=16'}
+  /@ts-tools/transpile/6.1.0_typescript@5.1.6:
+    resolution: {integrity: sha512-PdMGTfJOJ8qV2a8kMzeGRgeSz9fPplMvxOARmdkioJcS2E43cW/KW2KkKnIB7nBgd8tO6vN7IXMZOcald9EDcA==}
+    engines: {node: '>=20'}
     peerDependencies:
       typescript: '>=2.8.0'
     dependencies:
