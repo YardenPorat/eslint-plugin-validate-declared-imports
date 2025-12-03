@@ -24,7 +24,7 @@
     "eslint": ">=7"
   },
   "dependencies": {
-    "@typescript-eslint/utils": "^8.25.0"
+    "@typescript-eslint/utils": "^8.48.1"
   },
   "devDependencies": {
     "@file-services/node": "^9.4.1",
@@ -43,7 +43,8 @@
     "node": ">=0.10.0"
   },
   "volta": {
-    "node": "20.16.0"
+    "node": "22.21.0",
+    "pnpm": "10.20.0"
   },
   "license": "MIT",
   "repository": {

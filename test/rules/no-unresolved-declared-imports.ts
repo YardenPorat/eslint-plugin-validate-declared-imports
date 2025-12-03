@@ -1,4 +1,4 @@
-import fs from '@file-services/node';
+import { cpSync } from 'fs';
 import { resolve } from 'path';
 import { TSESLint } from '@typescript-eslint/utils';
 import { noUnresolvedDeclaredImports } from '../../src/rules/no-unresolved-declared-imports';
@@ -15,7 +15,7 @@ const ruleTester = new TSESLint.RuleTester({
 const TESTING_PACKAGE = 'test-cases';
 const options = [{ fileExtensions: ['.st.css', '.png'] }];
 const fixturesPath = resolve(__dirname, '../fixtures');
-fs.copyDirectorySync(fixturesPath, resolve(__dirname, `../../node_modules/${TESTING_PACKAGE}`));
+cpSync(fixturesPath, resolve(__dirname, `../../node_modules/${TESTING_PACKAGE}`), { recursive: true });
 
 const invalidCases = {
     absoluteStCss: resolve(fixturesPath, 'abc.st.css'),
